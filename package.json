@@ -1,0 +1,36 @@
+{
+  "name": "museum",
+  "version": "1.0.0",
+  "description": "",
+  "devDependencies": {
+    "@types/mapbox-gl": "^2.4.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "css-loader": "^6.2.0",
+    "file-loader": "^6.2.0",
+    "htmlhint": "^0.15.1",
+    "ignore-loader": "^0.1.2",
+    "mini-css-extract-plugin": "^2.2.0",
+    "node-sass": "^6.0.1",
+    "resolve-url-loader": "^4.0.0",
+    "sass": "^1.38.2",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.3.0",
+    "svg-url-loader": "^7.1.1",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.0.0"
+  },
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --open",
+    "test": "htmlhint src/*.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mapbox-gl": "^2.5.1",
+    "swiper": "^7.0.2"
+  }
+}

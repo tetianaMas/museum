@@ -1,0 +1,135 @@
+.gallery-section
+  padding-bottom: 0
+  .section-title
+    margin-bottom: 75px
+  .picture-container
+    position: relative
+    height: 1960px
+    overflow: hidden
+    &::after
+      position: absolute
+      bottom: 0
+      left: 0
+      display: block
+      width: 1440px
+      height: 360px
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, $black 100%)
+      content: ""
+      pointer-events: none
+    .picture-inner-container
+      display: flex
+      flex-flow: column wrap
+      column-gap: 36px
+      width: 100%
+      column-gap: 18px
+      height: 2996px
+      overflow: hidden
+      opacity: 0
+    .picture-inner-container::before,
+    .picture-inner-container::after
+      content: ""
+      flex-basis: 100%
+      width: 0
+      order: 2
+    .show
+      opacity: 1
+    .gallery-img
+      position: relative
+      margin-bottom: 24px
+      width: 456px
+      animation: transform 2s
+      overflow: hidden
+      img
+        max-height: 600px
+        height: 100%
+        transition: all 0.5s
+      &:nth-child(3n+1)
+        order: 1
+      &:nth-child(3n+2)
+        order: 2
+      &:nth-child(3n)
+        order: 3
+      &:nth-child(1),
+      &:nth-child(3)
+        margin-top: 50px
+      &:hover
+        cursor: pointer
+        .heart-icon
+          opacity: 1
+          transition: opacity 0.5s
+        img
+          transform: scale(1.1)
+    .heart-icon
+      position: absolute
+      top: 20px
+      right: 20px
+      z-index: 4
+      width: 30px
+      height: 30px
+      @include svg-mask('../svg/image-likes/heart.svg')
+      transition: 0.5s
+      opacity: 0
+    .heart-icon-filled
+      @include svg-mask('../svg/image-likes/heart-filled.svg')
+      filter: invert(11%) sepia(32%) saturate(6407%) hue-rotate(345deg) brightness(103%) contrast(111%)
+      animation: heartbeat 1s infinite
+      opacity: 1
+    .unliked
+      &:hover
+        .heart-icon
+          transform: scale(1.3)
+@keyframes transform
+  0%
+    transform: translateY(50%)
+    opacity: 0
+  100%
+    transform: translateY(0)
+    opacity: 1
+@keyframes heartbeat
+  0%
+    transform: scale(1)
+  20%
+    transform: scale(1.25) translateX(3%) translateY(3%)
+  40%
+    transform: scale(1.3) translateX(6%) translateY(7%)
+  60%
+    transform: scale(1.25) translateX(3%) translateY(3%)
+  100%
+    transform: scale(1) translateX(0%) translateY(0%)
+
+@media screen and (max-width: 1510px)
+  .gallery-section
+    .section-title
+      margin-bottom: 60px
+    .picture-container
+      height: 1205px
+      .gallery-img
+        width: calc(33.3% - 24px)
+@media screen and (max-width: 900px)
+  .gallery-section
+    .picture-container
+      .heart-icon
+        width: 20px
+        height: 20px
+@media screen and (max-width: 840px)
+  .gallery-section
+    .picture-container
+      .gallery-img
+        width: calc(50% - 24px)
+@media screen and (max-width: 768px)
+  .gallery-section
+    .section-title
+      margin-bottom: 40px
+    .picture-container
+      height: 1040px
+      .picture-inner-container
+        column-gap: 12px
+      .gallery-img
+        width: calc(50% - 12px)
+@media screen and (max-width: 420px)
+  .gallery-section
+    .picture-container
+      height: 597px
+      .heart-icon
+        width: 10px
+        height: 10px

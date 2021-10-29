@@ -1,0 +1,41 @@
+@mixin d-flex-center
+  display: flex
+  align-items: center
+  justify-content: center
+@mixin btn
+  display: flex
+  align-items: center
+  font-size: 22px
+  line-height: 26px
+  font-weight: 100
+  letter-spacing: 2px
+  text-align: center
+  transition: ease-in-out 0.5s
+  &:hover
+    background-color: $font-gold
+@mixin svg-mask($path, $hover-color: $font-gold)
+  background-repeat: no-repeat
+  background-size: 100% 100%
+  background-image: url($path)
+  transition: ease-in-out 0.5s
+  &:hover
+    cursor: pointer
+@mixin text-hover
+  color: $font-gold
+@mixin svg-mask-hover
+  background-color: $font-gold
+@mixin svg-mask-active
+  background-color: $font-gold-active
+@mixin title
+  display: flex
+  flex-direction: column
+  margin-bottom: 25px
+  margin-top: 0
+  font-family: $forum-font
+  font-weight: normal
+  font-size: 80px
+  line-height: 90px
+  letter-spacing: 5px
+  text-transform: uppercase
+  .title-nowrap
+    white-space: nowrap

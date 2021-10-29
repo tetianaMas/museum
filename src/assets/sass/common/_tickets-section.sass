@@ -1,0 +1,274 @@
+.tickets-section
+  .section-title
+    margin-bottom: 102px
+  .wrapper
+    display: flex
+  .tickets-img
+    display: flex
+    width: 50%
+  .tickets-form
+    padding-left: 60px
+    width: 50%
+  .form
+    display: flex
+    justify-content: space-between
+    width: 100%
+
+    .input-radio
+      position: relative
+      margin-right: 23px
+      visibility: hidden
+      cursor: pointer
+      &::after
+        content: ""
+        position: absolute
+        top: -4px
+        left: 0
+        display: block
+        box-sizing: border-box
+        width: 17px
+        height: 17px
+        box-shadow: inset 0 0 0 2px $black
+        border-radius: 50%
+        visibility: visible
+      &:checked::after
+        content: ""
+        position: absolute
+        top: -4px
+        left: 0
+        display: block
+        box-sizing: border-box
+        width: 17px
+        height: 17px
+        visibility: visible
+        background-color: $black
+        box-shadow: inset 0 0 0 3px $white
+        border-radius: 50%
+        border: 2px solid black
+    .title-sm
+      margin-bottom: 53px
+      text-transform: capitalize
+    .form-amont .title-sm
+      margin-bottom: 25px
+    &-label
+      font-family: $roboto-font
+      font-style: normal
+      font-weight: 300
+      font-size: 22px
+      line-height: 26px
+      color: $black
+      &:hover
+        cursor: pointer
+    &-btn
+      width: 175px
+      min-height: 50px
+      font-family: $roboto-font
+      font-style: normal
+      font-weight: 300
+      font-size: 22px
+      line-height: 26px
+      text-align: center
+      letter-spacing: 2px
+      text-transform: capitalize
+      color: $white
+      background-color: $black
+      border-radius: 2px
+      border-style: none
+      cursor: pointer
+      transition: ease-in-out 0.5s
+      &:hover
+        background-color: $font-gold
+        color: black
+    &-radio-item
+      margin-bottom: 25px
+
+.form-amont
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  &-item
+    position: relative
+    display: flex
+    flex-direction: column
+    margin-bottom: 10px
+    &:last-of-type
+      margin-bottom: 50px
+  &-input
+    position: relative
+    padding: 0
+    width: 150px
+    height: 50px
+    font-style: normal
+    font-weight: 300
+    font-size: 22px
+    line-height: 26px
+    text-align: center
+    color: $black
+    box-shadow: inset 0 0 0 3px $black
+    border-style: none
+
+  .form-title
+    margin-bottom: 25px
+    text-align: right
+  .form-label
+    margin-bottom: 15px
+.form-total
+  margin: 0
+  margin-bottom: 60px
+  font-family: $roboto-font
+  font-style: normal
+  font-weight: bold
+  font-size: 28px
+  line-height: 33px
+  letter-spacing: 1.65px
+  text-transform: capitalize
+  color: $black
+.age-btn
+  position: absolute
+  width: 50px
+  height: 50px
+  padding: 0
+  font-family: 'Roboto', sans-serif
+  font-style: normal
+  font-weight: bold
+  font-size: 30px
+  line-height: 37px
+  text-align: center
+  color: $black
+  background-color: transparent
+  border: none
+  cursor: pointer
+  transition: ease-in-out 0.5s
+  &:hover
+    color: $font-gold
+  &:active
+    color: $font-gold-active
+  &-minus
+    left: 0
+    bottom: 0
+  &-plus
+    right: 0
+    bottom: 0
+@media screen and (max-width: 1200px)
+  .tickets-section
+    .tickets-img
+      height: 100%
+      img
+        width: 100%
+        height: auto
+        object-fit: cover
+
+@media screen and (max-width: 1025px)
+  .tickets-section
+    .wrapper
+      justify-content: space-between
+    .section-title
+      margin-bottom: 83px
+    .tickets-img
+      width: 100%
+      max-width: 700px
+      height: 440px
+      img
+        width: 100%
+        height: auto
+        object-fit: cover
+    .tickets-form
+      width: auto
+    .form-type
+      display: none
+    .form
+      .form-amont
+        .title-sm
+          margin-bottom: 30px
+  .form-amont
+    padding-right: 29px
+    align-items: flex-start
+    &-input
+      width: 175px
+    .form-label
+      margin-bottom: 11px
+  .form-amont-item
+    margin-bottom: 28px
+    &:last-of-type
+      margin-bottom: 25px
+  .form-total
+    margin-bottom: 67px
+@media screen and (max-width: 880px)
+  .tickets-section
+    .tickets-img
+      height: 100%
+      img
+        width: 100%
+        height: auto
+@media screen and (max-width: 768px)
+  .tickets-section
+    .section-title
+      margin-bottom: 63px
+    .tickets-img
+      img
+        width: 444px
+        height: fit-content
+    .tickets-form
+      padding: 0 20px 0
+    .form
+      .form-amont
+        .title-sm
+          margin-bottom: 39px
+        .form-label
+          margin-bottom: 8px
+        &-item:last-of-type
+          margin-bottom: 39px
+      .form-total
+        margin-bottom: 40px
+@media screen and (max-width: 620px)
+  .tickets-section
+    .wrapper
+      flex-direction: column
+      align-items: center
+    .tickets-img
+      margin-bottom: 40px
+      max-height: 160px
+      overflow: hidden
+      img
+        height: auto
+        width: 100%
+    .tickets-form
+      padding: 0
+      width: 100%
+      .form
+        justify-content: center
+        .form-amont
+          padding: 0
+          align-items: center
+@media screen and (max-width: 420px)
+  .tickets-section
+    .tickets-form
+      .form
+        .form-amont
+          .title-sm
+            margin-bottom: 20px
+            font-weight: bold
+            font-size: 16px
+            line-height: 19px
+            text-align: center
+          .form-label
+            margin-bottom: 15px
+            font-weight: 300
+            font-size: 16px
+            line-height: 19px
+          .form-amont-item
+            margin-bottom: 20px
+            &:last-of-type
+              margin-bottom: 40px
+        .form-total
+          font-weight: bold
+          font-size: 16px
+          line-height: 19px
+          text-align: center
+          letter-spacing: inherit
+      .form-btn
+        font-weight: 300
+        font-size: 16px
+        line-height: 0px
+        text-align: center
+        letter-spacing: 2px

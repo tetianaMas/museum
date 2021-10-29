@@ -1,0 +1,88 @@
+.contacts-section
+  .wrapper
+    display: flex
+    justify-content: space-between
+  .title-sm
+    max-width: 227px
+    margin-bottom: 52px
+  .contacts-link
+    display: block
+    margin-bottom: 25px
+    font-weight: 300
+    font-size: 22px
+    line-height: 26px
+    color: $black
+    transition: ease-in-out 0.5s
+    &:hover
+      color: $font-gold
+    &:active
+      color: $font-gold-active
+  .contacts-map
+    display: flex
+    position: relative
+    width: 66.7%
+    height: 32.1vw
+  .mapboxgl-map
+    width: 100%
+    height: 100%
+@media screen and (max-width: 1025px)
+  .section.contacts-section
+    padding-bottom: 57px
+    .title-sm
+      margin-bottom: 35px
+      max-width: 185px
+      font-weight: 500
+      font-size: 24px
+      line-height: 28px
+    .contacts-link
+      margin-bottom: 15px
+      font-size: 20px
+      line-height: 23px
+@media screen and (max-width: 940px)
+  .section.contacts-section
+    padding-bottom: 62px
+    .wrapper
+      flex-direction: column
+  .contacts-section
+    .contacts-links
+      width: 50%
+      padding-right: 20px
+    .contacts-map
+      width: 100%
+      height: 58.1vw
+@media screen and (max-width: 768px)
+  .section.contacts-section
+    padding-bottom: 62px
+    .wrapper
+      flex-direction: column
+    .title-sm
+      margin-bottom: 40px
+      max-width: 173px
+      font-weight: 500
+      font-size: 20px
+      line-height: 23px
+    .contacts-links
+      margin-bottom: 40px
+    .contacts-link
+      font-weight: 300
+      font-size: 18px
+      line-height: 21px
+      &:last-of-type
+        margin-bottom: 0
+@media screen and (max-width: 544px)
+  .section.contacts-section
+    .contacts-links
+      max-width: 100%
+      width: 100%
+@media screen and (max-width: 420px)
+  .section.contacts-section
+    padding-bottom: 41px
+    .title-sm
+      max-width: 124px
+      font-weight: 500
+      font-size: 16px
+      line-height: 19px
+    .contacts-link
+      font-weight: 300
+      font-size: 16px
+      line-height: 19px

@@ -1,0 +1,448 @@
+.video-section
+  .video-text
+    display: flex
+    justify-content: space-between
+  .section-title
+    margin-bottom: 75px
+    width: 50%
+  .video-subtitle
+    margin: 0 0 75px 0
+    display: flex
+    align-items: center
+    width: 50%
+    font-weight: 300
+    font-size: 22px
+    line-height: 38.5px
+    color: $black
+  .video-wrapper
+    position: relative
+    margin-bottom: 40px
+    max-height: 735px
+    overflow: hidden
+    figure
+      margin: 0
+      .main-video
+        position: relative
+        object-fit: cover
+        width: 100%
+      .video-speed
+        position: absolute
+        top: 10%
+        left: 50%
+        z-index: 40
+        padding: 10px 20px
+        transform: translateX(-50%)
+        font-size: 34px
+        color: $white
+        background-color: rgba(0, 0, 0, 0.6)
+        transition: 0.5s
+      .video-poster
+        width: 100%
+        height: 100%
+        z-index: 1
+        object-fit: cover
+      .video-play
+        position: absolute
+        top: 50%
+        left: 50%
+        z-index: 2
+        transform: translate(-50%, -70%)
+        display: block
+        width: 220px
+        height: 220px
+        @include svg-mask('../video/controls/main-play.svg')
+        border: none
+        &:hover
+          filter: invert(65%) sepia(17%) saturate(22%) hue-rotate(52deg) brightness(110%) contrast(85%)
+      .controls
+        position: absolute
+        bottom: 0
+        z-index: 2
+        box-sizing: border-box
+        padding: 0 30px
+        display: flex
+        align-items: center
+        justify-content: space-between
+        width: 100%
+        height: 85px
+        background-color: $black
+        &-item
+          margin-right: 50px
+          &:nth-last-child(1)
+            margin: 0
+        .fullscreen-btn,
+        .fullscreen-btn-exit
+          padding: 0
+          margin: 0
+          width: 35px
+          height: 34px
+          background-size: 100% 100%
+          @include svg-mask('../video/controls/fullscreen.svg')
+          &:hover
+            filter: invert(68%) sepia(1%) saturate(74%) hue-rotate(314deg) brightness(90%) contrast(83%)
+        .fullscreen-btn-exit
+          @include svg-mask('../video/controls/fullscreen_exit.svg')
+        .timeline
+          max-width: 100%
+          width: 929px
+          flex: 0 1 67.4%
+          background: linear-gradient(to right, $dark-red 0%, $dark-red 0%, $player-timeline 0%, $player-timeline 100%)
+          height: 8px
+          -webkit-appearance: none
+          transition: 0.2s ease-in-out
+          cursor: pointer
+        .volume-btn,
+        .volume-btn-muted
+          width: 38px
+          height: 31px
+          background-size: 100% 100%
+          @include svg-mask('../video/controls/volume.svg')
+          &:hover
+            filter: invert(68%) sepia(1%) saturate(74%) hue-rotate(314deg) brightness(90%) contrast(83%)
+        .volume-btn-muted
+          width: 38px
+          height: 36px
+          @include svg-mask('../video/controls/mute.svg')
+        .volume
+          width: 155px
+          height: 8px
+          -webkit-appearance: none
+          transition: 0.2s ease-in-out
+          cursor: pointer
+          background: linear-gradient(to right, $dark-red 0%, $dark-red 100%, $player-timeline 100%, $player-timeline 100%)
+        .timeline::-webkit-slider-thumb,
+        .volume::-webkit-slider-thumb
+          -webkit-appearance: none
+          height: 15px
+          width: 15px
+          border-radius: 50%
+          cursor: pointer
+          background: $white
+          transition: 0.2s ease-in-out
+        .play-btn,
+        .pause-btn
+          width: 22px
+          height: 30px
+          background-size: 100% 100%
+          @include svg-mask('../video/controls/play.svg')
+          &:hover
+            filter: invert(68%) sepia(1%) saturate(74%) hue-rotate(314deg) brightness(90%) contrast(83%)
+        .pause-btn
+          @include svg-mask('../video/controls/pause.svg')
+
+  .video-thumbs-wrapper
+    margin-bottom: 37px
+    display: grid
+    grid-template-columns: repeat(5, 452px)
+    grid-template-rows: 1fr
+    justify-content: space-between
+    grid-column-gap: 42px
+    overflow: hidden
+  .video-iframe-wrapper
+    max-width: 452px
+  .video-thumb
+    max-width: 100%
+    position: relative
+    height: 0
+    padding-bottom: 56.25%
+    overflow: hidden
+    &:hover
+      cursor: pointer
+      .thumb-btn-svg
+        fill: $red
+
+  .video-slide
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    border-style: none
+    object-fit: cover
+  .video-name
+    position: absolute
+    top: 15px
+    left: 0
+    z-index: 2
+    width: 100%
+    padding: 0 36px 0 10px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    .video-name-subtitle
+      @include d-flex-center
+      img
+        padding-right: 10px
+    span
+      font-family: $roboto-font
+      font-style: normal
+      font-weight: normal
+      font-size: 18px
+      line-height: 38px
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+
+  .video-thumb-btn
+    position: absolute
+    top: 50%
+    left: 50%
+    z-index: 3
+    width: 68px
+    height: 48px
+    border: none
+    transform: translate(-50%, -50%)
+
+
+  .video-pagination,
+  .video-pagination-wrapper
+    display: flex
+    justify-content: center
+    align-items: center
+  .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+  .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet
+    margin: 0 10px
+  .swiper-pagination-bullet
+    width: 12px
+    height: 12px
+    background-color: $grey
+    border-radius: 50%
+    margin: 0 10px
+    opacity: 1
+    transition: ease-in-out 0.5s
+    &-active
+      background: $black-bullet
+      transition: ease-in-out 0.5s
+    &:hover
+      background: $dark-red
+      cursor: pointer
+  .swiper-pagination-bullet-active:hover
+    background-color: $black-bullet
+  .button-prev,
+  .button-next
+    padding: 0
+    width: 10px
+    height: 12px
+    background-color: transparent
+    border: none
+  .button-prev,
+  .button-next
+    transition: ease-in-out 0.5s
+    &:hover
+      cursor: pointer
+  .button-next
+    margin-left: 10px
+    @include svg-mask('../svg/slider-right.svg')
+    &:hover
+      filter: invert(20%) sepia(22%) saturate(4894%) hue-rotate(337deg) brightness(40%) contrast(117%)
+  .button-prev
+    margin-right: 10px
+    @include svg-mask('../svg/slider-left.svg')
+    &:hover
+      filter: invert(20%) sepia(22%) saturate(4894%) hue-rotate(337deg) brightness(40%) contrast(117%)
+@media screen and (max-width: 1480px)
+  .video-section
+    .video-wrapper
+      figure
+        .controls
+          .timeline
+            max-width: 55vw
+        .controls-item
+          margin-right: 2vw
+@media screen and (max-width: 1310px)
+  .video-section
+    .video-wrapper
+      figure
+        .main-video,
+        .video-poster
+          max-height: 600px
+        .video-play
+          width: 170px
+          height: 170px
+
+@media screen and (max-width: 1025px)
+  .video-section
+    padding: 61px 0
+    .section-title
+      margin: 0 0 40px
+    .video-subtitle
+      display: none
+    .video-wrapper
+      margin-bottom: 40px
+      height: 49vw
+      figure
+        margin: 0
+        .video-poster
+          bottom: 60px
+          height: 444px
+          min-height: 100%
+          z-index: 1
+          object-fit: cover
+        .video-play
+          width: 152px
+          height: 152px
+        .controls
+          padding: 0 40px
+          height: 60px
+          &-item
+            margin-right: 30px
+          .timeline
+            width: 564px
+            height: 5px
+          .volume-btn,
+          .volume-btn-muted
+            width: 26px
+            height: 20px
+          .fullscreen-btn,
+          .fullscreen-btn-exit
+            width: 26px
+            height: 26px
+          .volume
+            width: 143px
+            height: 5px
+          .timeline::-webkit-slider-thumb,
+          .volume::-webkit-slider-thumb
+            height: 13px
+            width: 13px
+    .video-thumbs-wrapper
+      grid-column-gap: 41px
+    .video-iframe-wrapper
+      width: 300px
+      height: 174px
+    .video-name
+      top: 9px
+      .video-name-subtitle
+        img
+          padding-right: 8px
+      span
+        width: 17vw
+
+
+@media screen and (max-width: 1023px)
+  .video-section
+    .video-wrapper
+      figure
+        .controls
+          &-item
+            margin-right: 2vw
+    .video-thumbs-wrapper
+      grid-column-gap: 3%
+
+
+@media screen and (max-width: 995px)
+  .video-section
+    .video-thumbs-wrapper
+      display: flex
+      justify-items: center
+      .video-iframe-wrapper
+        width: 100%
+        height: auto
+        &:last-of-type
+          display: none
+@media screen and (max-width: 768px)
+  .video-section
+    padding: 40px 0 81px
+    .section-title
+      margin-bottom: 20px
+    .video-thumbs-wrapper
+      margin-bottom: 20px
+    .video-pagination
+      margin-bottom: 40px
+    .swiper-pagination-bullet
+      width: 10px
+      height: 10px
+    .video-wrapper
+      margin-bottom: 22px
+      height: 50vw
+      max-height: 100%
+      figure
+        .video-poster
+          height: 42.5vw
+        .video-play
+          width: 80px
+          height: 80px
+          transform: translate(-50%, -85%)
+        .controls
+          padding: 0 30px
+          height: 53px
+          .timeline
+            position: absolute
+            top: -5px
+            left: 0
+            width: 100%
+            max-width: 100%
+            margin: 0
+          .volume
+            width: 486px
+@media screen and (max-width: 720px)
+  .section.video-section
+    .section-title
+      width: 100%
+@media screen and (max-width: 430px)
+  .section.video-section
+    padding: 36px 0 39px
+    .video-name
+      span
+        width: 34vw
+      svg
+        display: none
+    .video-wrapper
+      margin-bottom: 40px
+      height: 54.2vw
+      figure
+        .video-poster
+          max-height: 41.8vw
+        .controls
+          padding: 0 20px
+          .volume
+            width: 48vw
+          .volume-btn,
+          .volume-btn-muted
+            width: 4vw
+          .fullscreen-btn,
+          .fullscreen-btn-exit
+            width: 4vw
+          .pause-btn
+            width: 3vw
+          .timeline
+            top: -1px
+          .timeline,
+          .volume
+            height: 4px
+          .timeline::-webkit-slider-thumb,
+          .volume::-webkit-slider-thumb
+            height: 10px
+            width: 10px
+        .video-play
+          width: 12vw
+          height: 12vw
+          transform: translate(-50%, -100%)
+
+    .video-thumbs-wrapper
+      margin-bottom: 40px
+      grid-column-gap: 20px
+    .video-pagination
+      margin-bottom: 0
+    .swiper-pagination-bullet
+      width: 8px
+      height: 8px
+    .button-prev,
+    .button-next
+      padding: 0
+      width: 7px
+      height: 8px
+
+@media screen and (max-width: 410px)
+  .section.video-section
+    .video-thumb-btn
+      width: 50px
+    .video-name
+      top: 0
+      .video-name-subtitle
+        img
+          width: 30px
+      span
+        font-size: 12px
+    .video-wrapper figure .controls .play-btn,
+    .video-wrapper figure .controls .pause-btn
+      width: 18px

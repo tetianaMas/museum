@@ -1,0 +1,810 @@
+.modal
+  position: fixed
+  top: 50%
+  left: -100%
+  z-index: 9999
+  transform: translate(-50%, -50%)
+  width: 1440px
+  max-width: 100%
+  height: 845px
+  padding: 91px 235px
+  background-color: $white
+  transition: ease 1.2s
+.modal.show
+  left: 50%
+.tickets-modal
+  display: flex
+  justify-content: space-between
+.booking
+  max-width: 100%
+  width: 400px
+  .booking-title
+    margin-bottom: 15px
+    font-family: $forum-font
+    font-style: normal
+    font-weight: normal
+    font-size: 50px
+    line-height: 55px
+    text-transform: uppercase
+    color: $font-gold
+  .booking-subtitle
+    position: relative
+    margin-bottom: 73px
+    font-family: $roboto-font
+    font-style: normal
+    font-weight: normal
+    font-size: 18px
+    line-height: 21px
+    color: $dark-red
+    &::after
+      content: ""
+      position: absolute
+      bottom: -10px
+      display: block
+      width: 100%
+      height: 3px
+      background-color: $dark-red
+      opacity: 0.9
+  .booking-logo
+    width: 85px
+    height: 41px
+    @include svg-mask('../svg/logo-big.svg')
+    filter: invert(54%) sepia(16%) saturate(718%) hue-rotate(356deg) brightness(97%) contrast(88%)
+    &:hover
+      cursor: auto
+.overlay
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  z-index: 1000
+  display: none
+  width: 100%
+  background-color: rgba(0, 0, 0, 0.6)
+  opacity: 0
+  transition: ease 1.5s
+.overlay.show
+  display: block
+  opacity: 1
+.close-modal-btn
+  position: absolute
+  top: 28px
+  right: 30px
+  width: 30px
+  height: 30px
+  &::after
+    content: ""
+    width: 35px
+    display: block
+    transform: rotate(45deg)
+    box-shadow: 0 0 0 0.5px $dark-bg
+    transition: 0.5s
+  &::before
+    content: ""
+    width: 35px
+    display: block
+    transform: rotate(135deg)
+    box-shadow: 0 0 0 0.5px $dark-bg
+    transition: 0.5s
+  &:hover
+    &::after
+      content: ""
+      transform: rotate(225deg)
+      box-shadow: 0 0 0 1px $font-gold-active
+    &::before
+      content: ""
+      transform: rotate(315deg)
+      box-shadow: 0 0 0 1px $font-gold-active
+.tickets-form
+  display: flex
+  flex-direction: column
+  input::-webkit-input-placeholder
+    font-family: $roboto-font
+    font-weight: normal
+    font-size: 18px
+    line-height: 21px
+    color: $dark-bg
+  &-item
+    margin-bottom: 20px
+    width: 100%
+    height: 45px
+    padding: 0 0 0 44px
+    color: $dark-bg
+    background: $white
+    border: 1px solid $dark-bg
+    box-sizing: border-box
+    &:focus
+      outline: none
+  .form-date
+    display: flex
+    justify-content: space-between
+    .date,
+    .time
+      position: relative
+      width: 190px
+      color: $dark-bg
+      user-select: none
+      &::before
+        content: ""
+        position: absolute
+        top: 14px
+        left: 14px
+        display: block
+        width: 15px
+        height: 15px
+        @include svg-mask('../svg/form/date.svg')
+      &::-webkit-calendar-picker-indicator
+        position: absolute
+        top: 11px
+        right: 11px
+        width: 17px
+        height: 17px
+        @include svg-mask('../svg/form/arrow.svg')
+    .picker-rotate
+      &::-webkit-calendar-picker-indicator
+        transform: rotate(-180deg)
+    .date-placeholder
+      color: transparent
+      &::after
+        content: "Date"
+        position: absolute
+        top: 12px
+        left: 44px
+        font-family: $roboto-font
+        font-weight: normal
+        font-size: 18px
+        line-height: 21px
+        color: $dark-bg
+    .time
+      &::before
+        @include svg-mask('../svg/form/time.svg')
+      &::-webkit-calendar-picker-indicator
+        width: 17px
+        height: 17px
+    .time-placeholder
+      color: transparent
+      &::after
+        content: "Time"
+        position: absolute
+        top: 12px
+        left: 44px
+        font-family: $roboto-font
+        font-weight: normal
+        font-size: 18px
+        line-height: 21px
+        color: $dark-bg
+  .name-icon
+    position: relative
+    width: 100%
+    &::before
+      content: ""
+      position: absolute
+      top: 14px
+      left: 14px
+      display: block
+      width: 13px
+      height: 15px
+      @include svg-mask('../svg/form/name.svg')
+  .email-icon
+    position: relative
+    width: 100%
+    &::before
+      content: ""
+      position: absolute
+      top: 17px
+      left: 14px
+      display: block
+      width: 15px
+      height: 11px
+      @include svg-mask('../svg/form/email.svg')
+  .phone-icon
+    position: relative
+    width: 100%
+    &::before
+      content: ""
+      position: absolute
+      top: 11px
+      left: 14px
+      display: block
+      width: 14px
+      height: 23px
+      @include svg-mask('../svg/form/tel.svg')
+  .ticket-select-icon
+    position: relative
+    width: 100%
+    &::before
+      content: ""
+      position: absolute
+      top: 14px
+      left: 14px
+      display: block
+      width: 15px
+      height: 15px
+      @include svg-mask('../svg/form/ballot.svg')
+.entry-ticket
+  padding: 10px 15px 15px
+  border: 1px solid $dark-bg
+  .booking-subtitle
+    margin-bottom: 20px
+    font-family: $forum-font
+    font-style: normal
+    font-weight: normal
+    font-size: 18px
+    line-height: 20px
+    text-transform: capitalize
+    color: $font-gold
+    &::after
+      content: ""
+      bottom: -5px
+      height: 2px
+.entry-ticket-item
+  display: flex
+  justify-content: space-between
+  &:last-child
+    .form-amont-item
+      margin-bottom: 0
+    .form-label
+      padding-top: 0
+  .form-amont-item
+    margin-bottom: 18px
+  .form-amont-input
+    width: 105px
+    height: 25px
+    font-size: 18px
+    line-height: 21px
+    color: $dark-bg
+    box-shadow: inset 0 0 0 1px $dark-bg
+  .age-btn
+    width: 36px
+    height: 25px
+    font-size: 18px
+    line-height: 21px
+    background-color: $dark-bg
+    color: $white
+    transition: 0.5s
+    &:hover
+      color: $font-gold
+  .form-label
+    padding-top: 5px
+    font-weight: normal
+    font-size: 18px
+    line-height: 21px
+    color: $dark-bg
+.ticket-select
+  position: relative
+  margin-bottom: 20px
+  width: 100%
+  height: 45px
+  padding: 0 0 0 44px
+  color: $dark-bg
+  background: $white
+  border: 1px solid $dark-bg
+  box-sizing: border-box
+  cursor: pointer
+select.tickets-form-item
+  opacity: 0
+  width: 0
+  appearance: none
+  cursor: pointer
+.select-placeholder
+  color: transparent
+  &::after
+    content: "Ticket Type"
+    position: absolute
+    top: 12px
+    left: 44px
+    font-family: $roboto-font
+    font-weight: normal
+    font-size: 18px
+    line-height: 21px
+    color: $dark-bg
+.select-arrow
+  position: absolute
+  top: 14px
+  right: 14px
+  display: block
+  width: 17px
+  height: 17px
+  @include svg-mask('../svg/form/arrow.svg')
+  pointer-events: none
+.rotate-arrow
+  transform: rotate(-180deg)
+.select-options
+  position: relative
+  top: 43px
+  left: -45px
+  width: 400px
+  z-index: 20
+  display: none
+  background: $white
+  border: 1px solid $dark-bg
+  box-sizing: border-box
+  transition: ease 0.5s
+.ticket-select-opt
+  padding: 12px 43px 14px
+  font-weight: 300
+  font-size: 18px
+  line-height: 21px
+  color: $dark-bg
+  &:hover
+    cursor: pointer
+    background-color: $select-active
+.select-options.active
+  display: block
+  animation: select-show 0.5s
+.select-value
+  position: absolute
+  top: 50%
+  transform: translateY(-45%)
+  margin: 0
+  width: 100%
+  font-size: 18px
+  line-height: 21px
+  color: $dark-bg
+.opt-active
+  background-color: $select-active
+.payment
+  position: relative
+  box-sizing: border-box
+  padding: 25px 30px 26px
+  width: 530px
+  max-width: 100%
+  border: 1px solid $dark-bg
+  &-desc
+    margin-bottom: 22px
+    display: flex
+    justify-content: space-between
+  &-title
+    margin-bottom: 2px
+    font-weight: 500
+    font-size: 32px
+    line-height: 37px
+    color: $modal-ticket
+  &-subtitle
+    margin: 0 0 10px 0
+    font-weight: 500
+    font-size: 22px
+    line-height: 26px
+    color: $modal-ticket-red
+    opacity: 0.9
+  &-list
+    list-style: none
+    padding: 0
+    margin: 0
+    display: flex
+    flex-direction: column
+    &-item
+      margin-bottom: 7px
+      display: flex
+      align-items: center
+      font-weight: 300
+      font-size: 18px
+      line-height: 21px
+      color: $dark-bg
+      &:last-child
+        margin-bottom: 0
+  &-img
+    display: block
+    width: 150px
+    height: 120px
+.icon-date
+  margin-right: 15px
+  display: block
+  width: 15px
+  height: 15px
+  @include svg-mask('../svg/form/date.svg')
+.icon-time
+  margin-right: 15px
+  display: block
+  width: 15px
+  height: 15px
+  @include svg-mask('../svg/form/time.svg')
+.icon-checked
+  margin-right: 15px
+  display: block
+  width: 15px
+  height: 15px
+  @include svg-mask('../svg/form/checked.svg')
+.payment-total
+  margin-bottom: 7px
+  display: flex
+  flex-direction: column
+  font-weight: normal
+  font-size: 22px
+  line-height: 26px
+  color: $dark-bg
+.payment-item
+  margin: 0 0 5px 0
+  display: flex
+  justify-content: space-between
+  align-items: baseline
+  &:nth-child(2)
+    margin-bottom: 21px
+    position: relative
+    &::after
+      content: ""
+      position: absolute
+      bottom: -9px
+      display: block
+      width: 100%
+      height: 2px
+      background-color: $modal-ticket-red
+.ticket-type-amount
+  margin: 0
+  display: flex
+  align-items: center
+  font-size: 22px
+  line-height: 26px
+.ticket-counter
+  width: 32px
+  height: 20px
+  display: block
+  margin-right: 10px
+  text-align: center
+  font-size: 18px
+  line-height: 21px
+  color: $modal-total-amount
+  background-color: $dark-bg
+  border-radius: 5px
+.total-sum p
+  margin: 0
+.total-sum
+  display: flex
+  justify-content: space-between
+  font-weight: normal
+  font-size: 32px
+  line-height: 37px
+  color: $dark-bg
+.summary
+  font-weight: 500
+.card-front
+  position: relative
+  z-index: 9999
+  left: -5px
+  padding: 17px 15px 13px 25px
+  margin-bottom: 58px
+  background-color: $card-front
+  border-radius: 4px
+  width: 360px
+  max-width: 100%
+  height: 211px
+  font-weight: normal
+  font-size: 12px
+  line-height: 14px
+  color: $card-black
+.card-item
+  margin-bottom: 10px
+  display: flex
+  flex-direction: column
+  &:last-child
+    margin-bottom: 0
+.card-date
+  display: flex
+  justify-content: space-between
+.card-input
+  padding: 0 10px
+  width: 215px
+  min-height: 35px
+  max-width: 100%
+  font-weight: normal
+  font-size: 12px
+  line-height: 14px
+  color: $card-black
+  border: 0.5px solid $modal-total-amount
+  &:focus
+    outline: none
+.card-name
+  width: 320px
+.exp-date
+  width: 100px
+  padding: 0 38px 0 10px
+.exp-date-wrapper
+  position: relative
+.exp-month-btn,
+.exp-year-btn
+  position: absolute
+  top: 0
+  right: 0
+  display: block
+  width: 28px
+  height: 35px
+  border-left: 0.5px solid $modal-total-amount
+.exp-month-up,
+.exp-year-up
+  position: absolute
+  top: 12px
+  right: 11px
+  display: block
+  border-left: 3px solid transparent
+  border-right: 3px solid transparent
+  border-bottom: 4px solid $modal-total-amount
+  cursor: pointer
+  transition: ease 0.4s
+  &:hover
+    border-bottom: 4px solid $font-gold-active
+.exp-month-down,
+.exp-year-down
+  position: absolute
+  bottom: 12px
+  right: 11px
+  display: block
+  border-left: 3px solid transparent
+  border-right: 3px solid transparent
+  border-top: 4px solid $modal-total-amount
+  cursor: pointer
+  transition: ease 0.4s
+  &:hover
+    border-top: 4px solid $font-gold-active
+.card-date
+  max-width: 215px
+.card-label
+  margin-bottom: 5px
+.card-img
+  position: absolute
+  top: 36px
+  right: 15px
+  display: flex
+  max-height: 63px
+  flex-direction: column
+  align-items: flex-end
+  .visa-icon
+    margin-bottom: 12px
+.card-back
+  position: absolute
+  right: 28px
+  bottom: 97px
+  z-index: 1
+  padding: 25px 20px 15px
+  width: 360px
+  max-width: 100%
+  height: 211px
+  display: flex
+  align-items: flex-end
+  justify-content: flex-end
+  background-color: $card-bg-back
+  border-radius: 4px
+  &::before
+    content: ""
+    position: absolute
+    top: 25px
+    left: 0
+    display: block
+    width: 100%
+    height: 45px
+    background-color: $card-black
+.card-back-item
+  margin-bottom: 4px
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  font-weight: normal
+  font-size: 12px
+  line-height: 14px
+  color: $card-black
+.card-back-label
+  margin-bottom: 5px
+  padding-right: 6px
+  align-self: center
+.card-back-input
+  width: 75px
+  max-width: 100%
+  height: 35px
+  padding: 0 10px
+  margin-bottom: 6px
+  border: 0.5px solid $modal-total-amount
+  &:focus
+    outline: none
+.card-back-desc
+  display: block
+  align-self: center
+  max-width: 55px
+  font-size: 10px
+  line-height: 12px
+  white-space: pre-line
+.form-submit
+  display: flex
+  justify-content: flex-end
+  width: 100%
+.card-form-btn
+  box-sizing: border-box
+  position: relative
+  width: 220px
+  max-width: 100%
+  height: 45px
+  display: block
+  font-weight: normal
+  font-size: 22px
+  line-height: 26px
+  color: rgba(255, 255, 255, 0.9)
+  background: rgba(113, 7, 7, 0.9)
+  transition: 0.5s
+  overflow: hidden
+  &:hover
+    background-color: $font-gold
+  &:active
+    padding: 0
+  &:focus
+    outline: none
+.ripple
+  position: absolute
+  border-radius: 50%
+  transform: translate(-50%, -50%)
+  line-height: 0
+  background-color: $white
+  animation: ripple 0.6s linear
+
+@keyframes select-show
+  from
+    opacity: 0
+    transform: translateY(-10%)
+  to
+    opacity: 1
+    transform: translateY(0)
+
+@keyframes ripple
+  from
+    width: 0
+    height: 0
+    opacity: 0.4
+  to
+    width: 500px
+    height: 500px
+    opacity: 0
+@media screen and (max-width: 1400px)
+  .modal
+    padding: 75px 27px 30px
+    width: 1440px
+    max-width: 100%
+    height: 768px
+  .tickets-modal
+    justify-content: space-evenly
+  .close-modal-btn
+    top: 28px
+    right: 27px
+  .card-front
+    padding: 15px 20px
+    left: 0
+  .card-img
+    right: 20px
+@media screen and (max-width: 1025px)
+  .tickets-modal
+    justify-content: space-between
+@media screen and (max-width: 968px)
+  .modal
+    padding: 80px 30px 40px
+    width: 590px
+    height: 100%
+    overflow-y: scroll
+    overflow-x: hidden
+    &::-webkit-scrollbar
+      width: 0
+  .close-modal-btn
+    right: 30px
+  .tickets-modal
+    width: 100%
+    flex-direction: column
+    align-items: center
+  .booking
+    width: 100%
+    .booking-subtitle
+      margin-bottom: 52.86px
+  .tickets-form .form-date .date,
+  .tickets-form .form-date .time
+    width: 251px
+    max-width: auto
+  .entry-ticket
+    padding-bottom: 10px
+    margin-bottom: 51px
+    .booking-subtitle
+      margin-bottom: 21.94px
+  .payment
+    padding: 26px 14px 24px
+  .card-back
+    right: 15px
+  .payment-item
+    margin: 0 0 4px 0
+  .payment-total
+    margin-bottom: 12px
+@media screen and (max-width: 562px)
+  .card-form
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+  .card-back
+    position: relative
+    top: auto
+    right: auto
+    bottom: auto
+    left: auto
+    margin-bottom: 20px
+@media screen and (max-width: 420px)
+  .modal
+    padding: 80px 30px 50px
+    min-height: 100vh
+    height: 100%
+  .booking
+    .booking-title
+      font-weight: normal
+      font-size: 32px
+      line-height: 35px
+    .booking-subtitle
+      &::after
+        bottom: -15px
+  .tickets-form .form-date
+    flex-direction: column
+  .tickets-form .form-date .date,
+  .tickets-form .form-date .time
+    width: 100%
+  .entry-ticket
+    padding-bottom: 15px
+    margin-bottom: 49.12px
+    .booking-subtitle
+      &::after
+        bottom: -8px
+  .card-back
+    position: relative
+    top: 50%
+    bottom: 97px
+    left: 50%
+    margin-bottom: 0
+    transform: translate(-50%, 30%)
+  .payment
+    padding: 25px 15px
+  .payment-img
+    width: 120px
+    height: 100%
+  .payment-item:nth-child(2)::after
+    bottom: -10px
+  .payment-total
+    margin-bottom: 14px
+@media screen and (max-width: 400px)
+  .modal
+    padding: 20px
+  .form-submit
+    justify-content: center
+  .payment-title
+    font-size: 28px
+  .payment-subtitle
+    font-size: 20px
+  .card-img
+    display: none
+  .card-back,
+  .card-front
+    height: 165px
+    padding: 5px 10px
+  .card-input
+    min-height: 25px
+    width: 100%
+  .card-back-input
+    height: 25px
+    width: 65px
+  .exp-month-btn,
+  .exp-year-btn
+    height: 25px
+  .exp-month-up,
+  .exp-year-up
+    top: 14px
+  .exp-month-down,
+  .exp-year-down
+    bottom: 14px
+  .payment-img
+    width: 22vw
+    height: 100%
+  .payment-total
+    font-size: 16px
+  .ticket-type-amount
+    font-size: 16px
+  .total-sum
+    font-size: 18px
+@media screen and (max-width: 364px)
+  .payment-img
+    display: none
+@media screen and (max-width: 340px)
+  .entry-ticket-item
+    justify-content: center
+    flex-direction: column
+    align-items: center
+    .form-label
+      padding: 5px 0
